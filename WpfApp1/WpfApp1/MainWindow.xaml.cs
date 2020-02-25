@@ -24,5 +24,33 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            int a = int.Parse(liczba1.Text);
+            int b = int.Parse(liczba2.Text);
+            Wynik.Text = (a + b).ToString();
+        }
+
+        private void Minus_Click(object sender, RoutedEventArgs e)
+        {
+            int a = int.Parse(liczba1.Text);
+            int b = int.Parse(liczba2.Text);
+            Wynik.Text = (a - b).ToString();
+        }
+
+        private void Razy_Click(object sender, RoutedEventArgs e)
+        {
+            int a = int.Parse(liczba1.Text);
+            int b = int.Parse(liczba2.Text);
+            Wynik.Text = (a * b).ToString();
+        }
+
+        private void Podzielic_Click(object sender, RoutedEventArgs e)
+        {
+            int a = int.Parse(liczba1.Text);
+            int b = int.Parse(liczba2.Text);
+            Wynik.Text = (a / b).ToString();
+        }
     }
 }
