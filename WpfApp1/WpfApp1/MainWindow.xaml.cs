@@ -27,30 +27,75 @@ namespace WpfApp1
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            int a = int.Parse(liczba1.Text);
-            int b = int.Parse(liczba2.Text);
-            Wynik.Text = (a + b).ToString();
+            try
+            {
+                double a = double.Parse(liczba1.Text);
+                double b = double.Parse(liczba2.Text);
+                Wynik.Text = (a + b).ToString();
+            }
+            catch (FormatException)
+            {                
+                Wynik.Text = "Error";
+            }
         }
 
         private void Minus_Click(object sender, RoutedEventArgs e)
         {
-            int a = int.Parse(liczba1.Text);
-            int b = int.Parse(liczba2.Text);
-            Wynik.Text = (a - b).ToString();
+            try
+            {
+                double a = double.Parse(liczba1.Text);
+                double b = double.Parse(liczba2.Text);
+                Wynik.Text = (a - b).ToString();
+            }
+            catch (FormatException)
+            {
+                Wynik.Text = "Error";
+            }
         }
 
         private void Razy_Click(object sender, RoutedEventArgs e)
         {
-            int a = int.Parse(liczba1.Text);
-            int b = int.Parse(liczba2.Text);
-            Wynik.Text = (a * b).ToString();
+            try
+            {
+
+                double a = double.Parse(liczba1.Text);
+                double b = double.Parse(liczba2.Text);
+                Wynik.Text = (a * b).ToString();
+            }
+
+            catch (FormatException)
+            {
+                Wynik.Text = "Error";
+            }
         }
+
 
         private void Podzielic_Click(object sender, RoutedEventArgs e)
         {
-            int a = int.Parse(liczba1.Text);
-            int b = int.Parse(liczba2.Text);
-            Wynik.Text = (a / b).ToString();
+            try
+            {
+                double a = double.Parse(liczba1.Text);
+                double b = double.Parse(liczba2.Text);
+                if (b == 0)
+                {
+                    new DivideByZeroException();
+                    Wynik.Text = "Error";
+                }
+                else
+                {
+                    Wynik.Text = Math.Round((a / b),2).ToString() ;
+                }
+            }            
+            catch (FormatException)
+            {
+                Wynik.Text = "Error";
+            }
+   
+        }
+
+        private void liczba1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
