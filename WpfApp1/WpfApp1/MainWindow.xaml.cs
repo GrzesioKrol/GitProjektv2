@@ -24,14 +24,15 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
+        Class1 c1= new Class1();
+        Class2 c2= new Class2();
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                double a = double.Parse(liczba1.Text);
-                double b = double.Parse(liczba2.Text);
-                Wynik.Text = (a + b).ToString();
+                Wynik.Text = c1.dodawanie(double.Parse(liczba1.Text),double.Parse(liczba2.Text)).ToString();
+                
             }
             catch (FormatException)
             {                
@@ -43,9 +44,7 @@ namespace WpfApp1
         {
             try
             {
-                double a = double.Parse(liczba1.Text);
-                double b = double.Parse(liczba2.Text);
-                Wynik.Text = (a - b).ToString();
+                Wynik.Text = c1.odejmowanie(double.Parse(liczba1.Text), double.Parse(liczba2.Text)).ToString();
             }
             catch (FormatException)
             {
@@ -58,9 +57,7 @@ namespace WpfApp1
             try
             {
 
-                double a = double.Parse(liczba1.Text);
-                double b = double.Parse(liczba2.Text);
-                Wynik.Text = (a * b).ToString();
+                Wynik.Text = c2.mnozenie(double.Parse(liczba1.Text), double.Parse(liczba2.Text)).ToString();
             }
 
             catch (FormatException)
@@ -74,7 +71,6 @@ namespace WpfApp1
         {
             try
             {
-                double a = double.Parse(liczba1.Text);
                 double b = double.Parse(liczba2.Text);
                 if (b == 0)
                 {
@@ -83,7 +79,7 @@ namespace WpfApp1
                 }
                 else
                 {
-                    Wynik.Text = Math.Round((a / b),2).ToString() ;
+                    Wynik.Text = c2.dzielenie(double.Parse(liczba1.Text), double.Parse(liczba2.Text)).ToString();
                 }
             }            
             catch (FormatException)
